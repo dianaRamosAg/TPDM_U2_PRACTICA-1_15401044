@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Main3Activity">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=":: Creacion de Tareas ::"
+        android:textAlignment="center"
+        android:layout_marginTop="15dp"
+        android:textColor="#2196F3"
+        android:textStyle="bold"
+        android:textSize="30dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Descripción"
+        android:layout_marginLeft="10dp"
+        android:textSize="20dp"
+        android:layout_marginTop="70dp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtDescTarea"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Fecha de creación"
+        android:layout_marginLeft="10dp"
+        android:textSize="20dp"
+        android:layout_marginTop="50dp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="date"
+        android:id="@+id/txtFechTarea"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ID de lista"
+        android:layout_marginLeft="10dp"
+        android:textSize="20dp"
+        android:layout_marginTop="50dp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtIDLista"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Crear tarea"
+        android:id="@+id/btnCrearTarea"
+        android:layout_marginTop="60dp"/>
+    <Button
+        android:layout_marginTop="99dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/respuesta"
+        android:layout_marginLeft="40dp"
+        android:id="@+id/btnRegresar"/>
+</LinearLayout>
