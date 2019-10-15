@@ -40,17 +40,17 @@ class Main3Activity : AppCompatActivity() {
         }
     }//Oncretae
 
-    fun crearTarea()
-    {
+    fun crearTarea() {
         try {
             var transaccion = basedatos.writableDatabase
-            var SQL = "INSERT INTO TAREA VALUES(null,'DESCRIPCION','REALIZADO',ID_L)"
+            var SQL = "INSERT INTO TAREA VALUES(null,'DESCRIPCION','REALIZADO',ID_LISTA)"
+
             SQL = SQL.replace("DESCRIPCION",Tdesc?.text.toString())
             SQL = SQL.replace("REALIZADO",Tfech?.text.toString())
-            SQL = SQL.replace("ID_L",IDL?.text.toString())
+            SQL = SQL.replace("ID_LISTA",IDL?.text.toString())
             transaccion.execSQL(SQL)
             transaccion.close()
-            mensaje("EXITO", "SE CREO CORRECTAMENTE LA TAREA ")
+            mensaje("EXITO", "SE CREO CORRECTAMENTE LA TAREA : "+IDL?.text.toString())
             limpiarCampos()
         } catch (err: SQLiteException) {
             mensaje("ERROR", "NO SE PUDO CREAR LA TAREA")

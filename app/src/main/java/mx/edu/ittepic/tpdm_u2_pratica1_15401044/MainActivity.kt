@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
     var verListas: Button? = null
     var tareas: Button? = null
     var ListasM : ListView?= null
-    var ListasGen: ArrayList<String> = ArrayList()
+
     var basedatos = BaseDatos(this,"PRACTICA1",null,1)   //Conexion para SQLite
     
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
 
         btnGLT?.setOnClickListener {
             var genlist = Intent(this, Main2Activity::class.java)
+            MostrarListas()
             startActivity(genlist)
         }
         verListas?.setOnClickListener {
@@ -46,21 +47,19 @@ class MainActivity : AppCompatActivity() {
         }
     }
     fun MostrarListas(){
-
+        var ListasGen: ArrayList<String> = ArrayList()
         try {
-            var transaccion = basedatos.writableDatabase
+            var transaccion = basedatos.readableDatabase
             var SQL="SELECT * FROM LISTA"
-
             var  cursor = transaccion.rawQuery(SQL,null)
             if (cursor.moveToFirst()==true){
                 do{
                     ListasGen?.add(cursor.getString(0)+" | "+cursor.getString(1)+" | "+cursor.getString(2))
-
                 }while(cursor.moveToNext())
             }
             cursor.close()
             val adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,ListasGen)
-            ListasM?.setAdapter(adapter);
+            Listas?.setAdapter(adapter);
 
         }catch (err: SQLiteException){
         }

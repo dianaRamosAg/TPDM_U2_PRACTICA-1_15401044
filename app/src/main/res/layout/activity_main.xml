@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="15dp"
         android:layout_marginBottom="10dp"
         android:text="Control de actividades"
         android:textAlignment="center"
@@ -120,18 +120,16 @@
             android:background="@drawable/tiemporestante"
             android:gravity="center" />
     </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="    ID   DESCRIPCION   FECHA"/>
 
-    <ScrollView
+    <ListView
+        android:id="@+id/Listas"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <ListView
-            android:id="@+id/Listas"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-        </ListView>
-    </ScrollView>
-
+    </ListView>
 
 </LinearLayout>

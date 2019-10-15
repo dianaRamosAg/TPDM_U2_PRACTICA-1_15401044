@@ -16,39 +16,58 @@
         android:textColor="#C2249C"
         android:textStyle="bold"
         android:textSize="30dp"/>
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ID"
         android:layout_marginLeft="5dp"
         android:textSize="20dp"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="10dp"/>
+
     <EditText
+        android:id="@+id/txtIDLista"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/txtIDLista"/>
-    <TextView
+        android:enabled="false" />
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Descripción"
         android:layout_marginLeft="10dp"
         android:textSize="20dp"
-        android:layout_marginTop="30dp"/>
+        android:layout_marginTop="10dp"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/txtDescripcionLista"/>
-    <TextView
+        android:id="@+id/txtDescripcionLista"
+        android:enabled="false" />
+    </LinearLayout>
+    <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Fecha de creación"
         android:layout_marginLeft="10dp"
         android:textSize="20dp"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="10dp"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/txtFechaCreacionLista"/>
+        android:id="@+id/txtFechaCreacionLista"
+        android:enabled="false" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/btnBuscarLista"
@@ -62,14 +81,12 @@
         android:layout_height="wrap_content"
         android:text="Tareas de la lista "
         android:layout_marginTop="20dp"/>
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp">
+
         <ListView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
-    </ScrollView>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/ListarTareas"/>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

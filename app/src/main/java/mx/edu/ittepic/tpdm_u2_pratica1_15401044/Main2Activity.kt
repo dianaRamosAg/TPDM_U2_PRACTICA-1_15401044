@@ -5,12 +5,10 @@ import android.database.sqlite.SQLiteException
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ArrayAdapter
-import android.widget.Button
-import android.widget.EditText
-import android.widget.ListView
+import android.widget.*
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AlertDialog
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main2.*
 import kotlinx.android.synthetic.main.activity_main4.*
 
@@ -20,6 +18,7 @@ class Main2Activity : AppCompatActivity() {
     var btnCL: Button?=null
     var Ldesc: EditText?=null
     var Lfech: EditText?=null
+    var ListasM : ListView?= null
     var basedatos = BaseDatos(this,"PRACTICA1",null,1)   //Conexion para SQLite
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,7 +29,6 @@ class Main2Activity : AppCompatActivity() {
         btnCL=findViewById(R.id.btnCrearLista)
         Ldesc=findViewById(R.id.txtDescLista)
         Lfech=findViewById(R.id.txtFechLista)
-
 
 
         btnCL?.setOnClickListener {
@@ -58,7 +56,24 @@ class Main2Activity : AppCompatActivity() {
             mensaje("Error", "NO SE CREO LA LISTA ")
         }
     }// ilseanumis
+    fun MostrarListas(){
+        var ListasGen: ArrayList<String> = ArrayList()
+        try {
+            var transaccion = basedatos.readableDatabase
+            var SQL="SELECT * FROM LISTA"
+            var  cursor = transaccion.rawQuery(SQL,null)
+            if (cursor.moveToFirst()==true){
+                do{
+                    ListasGen?.add(cursor.getString(0)+" | "+cursor.getString(1)+" | "+cursor.getString(2))
+                }while(cursor.moveToNext())
+            }
+            cursor.close()
+            val adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,ListasGen)
+            Listas?.setAdapter(adapter);
 
+        }catch (err: SQLiteException){
+        }
+    }
 
 
 
